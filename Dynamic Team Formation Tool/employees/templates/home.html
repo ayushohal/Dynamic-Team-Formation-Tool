@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+    <style>
+        /* Apply a gradient background to the entire page */
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #a9ffef, #acb6e5);
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        /* Style the main content wrapper */
+        .content-wrapper {
+            background-color: rgb(184, 214, 252);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Drop shadow */
+        }
+
+        /* Style the heading */
+        head2 {
+          font-size: 2.5em; /* Adjust as needed */
+          color: blue; /* Text color */
+          margin-bottom: 20px; /* Space below the heading */
+          
+          padding: 20px; /* Padding for spacing */
+          border-radius: 10px; /* Rounded corners */
+          
+        }
+
+        /* Style the container for the links (buttons) */
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Style the links */
+        button{
+            display: inline-block;
+            margin: 10px 0;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            color: white;
+            text-decoration: none;
+            background: linear-gradient(135deg, #ff9966, #acb6e5);
+            border-radius: 20px;
+            transition: background 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        button:hover {
+            background: linear-gradient(135deg, #fc6742, #ff9966);
+        }
+    </style>
+
+    <p style="font-family: 'Georgia', serif; font-size: 28px; text-align: left;">
+        Welcome to the <strong>Skill-Based Team Formation Tool</strong>, an advanced platform tailored to streamline team creation based on the diverse skills of your employees. This project combines several modern techniques such as <em>graphs</em> and <em>hashing</em>, which allow us to analyze employee skillsets and create efficient, well-rounded teams. Our core algorithm, the powerful <strong>Hungarian Algorithm</strong>, ensures that team assignments are made optimally, matching the best resources to the most suitable projects. Additionally, our tool provides a comprehensive view of the team formation process through detailed visualizations, including <strong>graphs</strong> that represent skill distributions and task allocations. By using this tool, organizations can drastically enhance their productivity by leveraging data-driven insights for decision-making. Whether managing large teams or smaller groups, our platform is designed to help you allocate talent effectively, creating teams that are equipped to handle any challenge with precision and efficiency.
+    </p>
+    
+{% endblock %}

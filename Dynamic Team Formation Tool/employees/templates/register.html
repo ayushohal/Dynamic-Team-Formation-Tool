@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+
+{% block title %}Register Employee{% endblock %}
+
+{% block content %}
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #a9ffef, #ACB6E5); /* Gradient for background */
+            font-family: Arial, sans-serif;
+        }
+
+        form {
+            background-color: white;
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 100%;
+            max-width: 400px; /* Limit form width */
+        }
+
+        head1 {
+            font-size: 2.5em; /* Adjust as needed */
+            color: black; /* Text color */
+            margin-bottom: 20px; /* Space below the heading */
+           
+            padding: 20px; /* Padding for spacing */
+            border-radius: 10px; /* Rounded corners */
+           
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background: linear-gradient(135deg, #a9ffef, #ACB6E5); /* Gradient for button */
+            border: none;
+            padding: 10px 20px;
+            color: black;
+            font-size: 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            display: block; /* Allows margin auto centering */
+            margin: 30px auto 0; /* Add space on top, center horizontally */
+        }
+
+        button:hover {
+            background: linear-gradient(135deg, #ACB6E5, #a9ffef); /* Inverted gradient on hover */
+        }
+    </style>
+
+    <form method="post">
+        <head1><i>Register Employee</i></head1>
+        {% csrf_token %}
+        
+        {{ form.non_field_errors }}
+        <br>
+        <br>
+        
+        <div class="form-group">
+            {{ form.name.label_tag }}
+            {{ form.name }}
+        </div>
+        <div class="form-group">
+            {{ form.age.label_tag }}
+            {{ form.age }}
+        </div>
+        <div class="form-group">
+            {{ form.skills.label_tag }}
+            {{ form.skills }}
+        </div>
+        <div class="form-group">
+            {{ form.roll.label_tag }}
+            {{ form.roll }}
+        </div>
+
+        <button type="submit">Register</button>
+    </form>
+{% endblock %}

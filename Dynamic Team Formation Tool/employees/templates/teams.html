@@ -1,0 +1,145 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Skill-Based Teams</title>
+    <style>
+      /* Gradient background and center alignment */
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background: linear-gradient(135deg, #a9ffef, #acb6e5);
+        font-family: Arial, sans-serif;
+      }
+
+      /* Main container with drop shadow */
+      .content-wrapper {
+        background-color: rgb(180, 212, 255);
+        padding: 40px;
+        border-radius: 20px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        text-align: center;
+        width: 100%;
+        max-width: 600px;
+      }
+
+      /* Heading styling */
+      h1 {
+        font-size: 2em;
+        color: #00479e;
+        background: linear-gradient(to right, #00c6ff, #00479e);
+        color: white;
+        padding: 15px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      }
+
+      /* Form styling */
+      form {
+        margin-bottom: 30px;
+      }
+
+      label {
+        font-weight: bold;
+      }
+
+      input {
+        padding: 10px;
+        font-size: 1em;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        margin-bottom: 15px;
+        width: 100%;
+        max-width: 300px;
+      }
+
+      /* Button styling */
+      button {
+        padding: 10px 20px;
+        font-size: 1.1em;
+        background: linear-gradient(135deg, #ff9966, #ff5e62);
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+      }
+
+      button:hover {
+        background: linear-gradient(135deg, #fc6742, #ff9966);
+      }
+
+      /* Team list styles */
+      ul {
+        list-style-type: none;
+        padding: 0;
+        text-align: left;
+      }
+
+      li {
+        padding: 10px;
+        border-bottom: 1px solid #ccc;
+      }
+
+      /* Link button */
+      a {
+        display: inline-block;
+        margin-top: 20px;
+        padding: 10px 20px;
+        font-size: 1.2em;
+        color: #fff;
+        text-decoration: none;
+        background: linear-gradient(to right, #ff9966, #acb6e5);
+        border-radius: 20px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        transition: background 0.3s ease;
+      }
+
+      a:hover {
+        background: linear-gradient(to right, #fc714b, #ff9966);
+      }
+    </style>
+</head>
+<body>
+    <div class="content-wrapper">
+      <h1>Skill-Based Teams</h1>
+
+      <form method="post">
+        {% csrf_token %}
+        <label for="team_size">Choose Team Size:</label><br />
+        <input
+          type="number"
+          id="team_size"
+          name="team_size"
+          required
+          min="1"
+        /><br />
+        <button type="submit">Form Teams</button>
+      </form>
+
+      <ul>
+        {% for skill, members in teams.items %}
+        <li>
+          <strong>Skill: {{ skill }}</strong>
+          <ul>
+            {% for member in members %}
+            <li>{{ member.name }} (Age: {{ member.age }})</li>
+            {% endfor %}
+          </ul>
+        </li>
+        {% endfor %}
+      </ul>
+
+      <a href="{% url 'register_employee' %}">Register Another Employee</a> <!-- Use Django's URL routing -->
+    </div>
+</body>
+</html>
+{% endblock content %}

@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Employee List</title>
+    <style>
+      /* Apply a gradient background to the entire page */
+      body {
+        margin: 0px;
+        background: linear-gradient(135deg, #a9ffef, #acb6e5);
+        font-family: Arial, sans-serif;
+        text-align: center;
+        min-height: 100vh; /* Allow the body to extend beyond the viewport height */
+        padding: 0px; /* Add padding to the body */
+      }
+
+      /* Style the main white content box */
+      .content-wrapper {
+        background-color: rgb(184, 214, 252);
+        padding: 20px;
+        border-radius: 20px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        width: 80%;
+        max-width: 800px;
+        margin: auto; /* Center it with automatic margins */
+      }
+
+      /* Style the heading */
+      h2 {
+        color: white;
+        font-size: 2.5em;
+        background: linear-gradient(to right, #00c6ff, #00479e);
+        padding: 20px;
+        border-radius: 10px;
+        margin-top: 20px; /* Add margin-top for spacing from the navbar */
+        margin-bottom: 30px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+      }
+
+      /* Style the table */
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      th,
+      td {
+        padding: 15px;
+        border: 3px solid black;
+        text-align: left;
+      }
+
+      th {
+        background-color: #00479e;
+        color: white;
+      }
+
+      tr:nth-child(even) {
+        background-color: #f2f2f2;
+      }
+
+      /* Style the links (buttons) */
+      button {
+        display: inline-block;
+        margin: 10px 0;
+        padding: 10px 20px;
+        font-size: 1.2em;
+        color: #fff;
+        text-decoration: none;
+        background: linear-gradient(to right, #ff9966, #acb6e5);
+        border-radius: 20px;
+        transition: background 0.3s ease;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        border: none; /* Remove border for buttons */
+        cursor: pointer; /* Change cursor to pointer */
+      }
+
+      button:hover {
+        background: linear-gradient(to right, #fc714b, #ff9966);
+      }
+    </style>
+</head>
+<body>
+    <div class="content-wrapper">
+        <h2>Registered Employees</h2>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Skills</th>
+            </tr>
+            {% for employee in employees %}
+            <tr>
+                <td>{{ employee.name }}</td>
+                <td>{{ employee.age }}</td>
+                <td>{{ employee.skills }}</td>
+                <td>{{ employee.roll }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <br />
+       
+    </div>
+</body>
+</html>
+{% endblock content %}

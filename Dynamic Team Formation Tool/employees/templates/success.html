@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+{% block title %}Success{% endblock %}
+
+{% block content %}
+    <style>
+        /* Apply a gradient background to the entire page */
+        body {
+            display: flex;
+            flex-direction: column; /* Stack items vertically */
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #a9ffef, #ACB6E5);
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        /* Style the main white division */
+        .content-wrapper {
+            background-color: rgb(184, 214, 252);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Drop shadow for the white box */
+        }
+
+        /* Style the heading */
+        h2 {
+            color: white;
+            font-size: 2.5em;
+            background: linear-gradient(to right, #00c6ff, #00479e);
+            padding: 20px;
+            border-radius: 10px;
+            display: inline-block;
+            margin-bottom: 30px; /* Add space between heading and buttons */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Black drop shadow */
+        }
+
+        /* Style the container for the buttons */
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Center the buttons */
+        }
+
+        /* Style the links/buttons */
+        button {
+            display: inline-block;
+            margin: 10px 0; /* Margin for spacing between buttons */
+            padding: 10px 20px;
+            font-size: 1.2em;
+            color: white;
+            text-decoration: none;
+            background: linear-gradient(135deg, #ff9966, #acb6e5);
+            border-radius: 20px;
+            transition: background 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        button:hover {
+            background: linear-gradient(135deg, #fc6742, #ff9966); /* Change on hover */
+        }
+    </style>
+
+    <div class="content-wrapper">
+        <h2>Employee Registered Successfully!</h2>
+
+       
+    </div>
+{% endblock %}

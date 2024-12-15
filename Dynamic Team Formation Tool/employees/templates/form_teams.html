@@ -1,0 +1,136 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Teams</title>
+    <style>
+        /* Set body height and enable scrolling */
+        body {
+            min-height: 100vh; /* Ensure body takes up at least the full height of the viewport */
+            margin: 0;
+            background: linear-gradient(135deg, #a9ffef, #ACB6E5);
+            font-family: Arial, sans-serif;
+            overflow-y: auto; /* Enable scrolling for the whole page */
+        }
+
+        /* Style the container for the form */
+        .form-container {
+            background-color: rgb(180, 212, 255);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Black drop shadow */
+            text-align: center;
+            width: 100%;
+            max-width: 700px;
+            margin: 50px auto; /* Center the container and give it space from the top */
+        }
+
+        /* Create a division behind the heading */
+        .heading-wrapper {
+            background: linear-gradient(135deg,#ef9c6d, #a9ffef);
+            padding: 10px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        h3 {
+            margin: 0;
+            font-size: 2em;
+            color: #00479e;
+        }
+
+        /* Style the form elements */
+        form {
+            display: flex;
+            width: 700px;
+            flex-direction: column;
+            gap: 15px; /* Add space between form elements */
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input {
+            padding: 10px;
+            font-size: 1em;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        /* Gradient button styles */
+        button {
+            display: inline-block;
+            margin: 10px 0;  /* Add vertical spacing between buttons */
+            padding: 10px 20px;
+            font-size: 1.2em;
+            color: Black;
+            text-decoration: none;
+            background: linear-gradient(to right, #ff9966, #ACB6E5);
+            border-radius: 20px;
+            transition: background 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Black drop shadow */
+        }
+
+        button:hover {
+            background: linear-gradient(to right, #fc714b, #ff9966);
+        }
+
+        /* Style the team display */
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <!-- Heading division -->
+        <div class="heading-wrapper">
+            <h3>Form Skill-Based Teams</h3>
+        </div>
+
+        <form method="post">
+            {% csrf_token %}
+            <label for="team_size">Enter Team Size:</label>
+            <input type="number" name="team_size" id="team_size" required>
+            <br>
+            <label for="skills">Enter Required Skills (comma-separated):</label>
+            <input type="text" name="skills" id="skills" required>
+            <br>
+            <button type="submit">Form Teams</button>
+        </form>
+
+        {% if teams %}
+            <h2>Teams Formed:</h2>
+            <br>
+            <ul>
+                {% for skill, team_members in teams.items %}
+                    <li>
+                        <strong>Team for {{ skill }} :</strong>
+                        <ul>
+                            {% for member in team_members %}
+                                <li>{{ member }}</li> <!-- Display the member string properly formatted from the view -->
+                            {% endfor %}
+                            <br>
+                        </ul>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        {% if error_message %}
+            <p style="color: red; font-weight: bold;">{{ error_message }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>
+{% endblock content %}
