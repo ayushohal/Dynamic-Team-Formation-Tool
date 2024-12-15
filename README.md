@@ -1,2 +1,2 @@
 # Dynamic-Team-Formation-Tool
-The Skill-Based Team Management System is a web-based tool designed to automate the assignment of team members to projects based on their skill sets.
+The Skill-Based Team Management System is a web-based tool designed to automate the assignment of team members to projects based on their skill sets. The system leverages the Hungarian Algorithm, a combinatorial optimization algorithm used to solve assignment problems, ensuring that team members are allocated to tasks in a way that maximizes productivity while minimizing inefficiencies. Each project has specific skill requirements, and the system matches them with employees' available skills, creating an optimal assignment plan.
